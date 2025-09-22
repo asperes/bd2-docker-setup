@@ -55,7 +55,7 @@ Este respositório contém o setup de um ambiente em Docker para o MongoDB e Pos
 > ```
 > deve ser colocado o nome da base de dados como `bd2_IIIII`, onde `IIIII` é o seu número mecanográfico. Por exemplo, para o número mecanográfico 12345, o nome da base de dados deve ser `bd2_12345`.
 
-- Para parar o ambiente:
+## Para parar o ambiente:
 
    **Unix (bash/zsh):**
    ```bash
