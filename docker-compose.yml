@@ -1,0 +1,32 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${N_MECANOGRAFICO}
+      MONGO_INITDB_ROOT_PASSWORD: ${PASSWORD}
+      MONGO_INITDB_DATABASE: ${DEFAULT_DB}
+    volumes:
+        - mongo-data:/data/db
+        - ./mongo-init:/docker-entrypoint-initdb.d/
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${N_MECANOGRAFICO}
+      POSTGRES_PASSWORD: ${PASSWORD}
+      POSTGRES_DB: ${DEFAULT_DB}
+    volumes:
+        - postgres-data:/var/lib/postgresql/data
+        - ./postgres-init:/docker-entrypoint-initdb.d/
+
+volumes:
+  mongo-data:
+  postgres-data:
