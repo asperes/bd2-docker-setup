@@ -14,7 +14,7 @@ services:
         - ./mongo-init:/docker-entrypoint-initdb.d/
 
   postgres:
-    image: postgres:latest
+    image: postgis/postgis:16-3.4  # ARM64 compatible version
     container_name: postgres
     restart: unless-stopped
     ports:
